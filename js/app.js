@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =================================================
    FRIENDS LIGHTBOX
 ================================================= */
-
+console.log("ANTES DEL LIGHTBOX");
 const cards = document.querySelectorAll(".friend-card");
 const lightbox = document.getElementById("friendLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
@@ -133,6 +133,9 @@ if (
     lightboxImage &&
     lightboxClose
 ) {
+
+    console.log("LIGHTBOX INICIALIZADO");
+
 
     cards.forEach(card => {
 
