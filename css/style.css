@@ -310,3 +310,179 @@ height:58px;
 }
 
 }
+/* ==========================================================
+   FRIENDS
+========================================================== */
+
+.friends-hero{
+    padding:90px 0 50px;
+    text-align:center;
+}
+
+.section-label{
+    display:inline-block;
+    background:#ffe8a5;
+    color:var(--primary);
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.friends-hero h1{
+    color:var(--primary);
+    font-size:3rem;
+    margin-bottom:18px;
+}
+
+.friends-subtitle{
+    font-size:1.2rem;
+    color:#666;
+    max-width:760px;
+    margin:0 auto 28px;
+    font-style:italic;
+}
+
+.friends-intro{
+    max-width:820px;
+    margin:0 auto;
+    color:#555;
+}
+
+
+/* ===========================
+   GRID
+=========================== */
+
+.friends-section{
+    padding:40px 0 90px;
+}
+
+.friends-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+}
+
+.friend-card{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    text-align:center;
+    padding:30px 25px;
+    cursor:pointer;
+    transition:transform .25s ease,
+               box-shadow .25s ease;
+}
+
+.friend-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 35px rgba(0,0,0,.14);
+}
+
+.friend-card img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    margin:0 auto 20px;
+}
+
+.friend-card h3{
+    color:var(--primary);
+    font-size:1.4rem;
+    margin-bottom:10px;
+}
+
+.friend-card p{
+    color:#666;
+    font-size:.98rem;
+    line-height:1.5;
+}
+
+
+/* ===========================
+   LIGHTBOX
+=========================== */
+
+.friend-lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.88);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.25s;
+    z-index:9999;
+    padding:40px;
+}
+
+.friend-lightbox.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.friend-lightbox img{
+    max-width:520px;
+    max-height:80vh;
+    width:100%;
+    object-fit:contain;
+}
+
+.lightbox-close{
+    position:absolute;
+    top:25px;
+    right:30px;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    color:#333;
+    font-size:2rem;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.lightbox-close:hover{
+    transform:scale(1.08);
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1000px){
+
+    .friends-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .friends-hero h1{
+        font-size:2.3rem;
+    }
+
+    .friends-subtitle{
+        font-size:1rem;
+    }
+
+    .friends-grid{
+        grid-template-columns:1fr;
+    }
+
+    .friend-card img{
+        width:160px;
+        height:160px;
+    }
+
+    .friend-lightbox img{
+        max-width:90%;
+    }
+
+}

@@ -1,4 +1,3 @@
-```javascript
 /* =====================================================
    LA ASADERÍA 2.0
    app.js
@@ -120,73 +119,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       LIGHTBOX
-    ================================================= */
+   FRIENDS LIGHTBOX
+================================================= */
 
-    const gallery = document.querySelectorAll("[data-lightbox]");
+const cards = document.querySelectorAll(".friend-card");
+const lightbox = document.getElementById("friendLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
 
-    if (gallery.length > 0) {
+if (
+    cards.length &&
+    lightbox &&
+    lightboxImage &&
+    lightboxClose
+) {
 
-        const overlay = document.createElement("div");
-        overlay.className = "lightbox";
+    cards.forEach(card => {
 
-        overlay.innerHTML = `
-            <span class="lightbox-close">&times;</span>
-            <img class="lightbox-image" src="" alt="">
-        `;
+        card.addEventListener("click", () => {
 
-        document.body.appendChild(overlay);
+            lightboxImage.src = card.dataset.image;
 
-        const image = overlay.querySelector(".lightbox-image");
-        const close = overlay.querySelector(".lightbox-close");
+            lightbox.classList.add("active");
 
-        gallery.forEach(item => {
-
-            item.addEventListener("click", e => {
-
-                e.preventDefault();
-
-                image.src = item.getAttribute("href");
-
-                overlay.classList.add("show");
-
-                document.body.style.overflow = "hidden";
-
-            });
+            document.body.style.overflow = "hidden";
 
         });
 
-        function closeLightbox() {
+    });
 
-            overlay.classList.remove("show");
+    function closeFriendLightbox() {
 
-            document.body.style.overflow = "";
+        lightbox.classList.remove("active");
+
+        lightboxImage.src = "";
+
+        document.body.style.overflow = "";
+
+    }
+
+    lightboxClose.addEventListener("click", closeFriendLightbox);
+
+    lightbox.addEventListener("click", e => {
+
+        if (e.target === lightbox) {
+
+            closeFriendLightbox();
 
         }
 
-        close.addEventListener("click", closeLightbox);
+    });
 
-        overlay.addEventListener("click", e => {
+    document.addEventListener("keydown", e => {
 
-            if (e.target === overlay) {
+        if (e.key === "Escape") {
 
-                closeLightbox();
+            closeFriendLightbox();
 
-            }
+        }
 
-        });
+    });
 
-        document.addEventListener("keydown", e => {
-
-            if (e.key === "Escape") {
-
-                closeLightbox();
-
-            }
-
-        });
-
-    }
+}
 
 
     /* =================================================
